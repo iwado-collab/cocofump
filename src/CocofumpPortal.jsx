@@ -426,28 +426,38 @@ function IndvHome({ go }) {
 function MyQuals() {
   const [quals, setQuals] = useState(MY.quals);
   const [showAdd, setShowAdd] = useState(false);
-  const [step, setStep] = useState("choose"); // choose | api_consent | api_running | card_present | card_running | form
-  const [route, setRoute] = useState(null);
+  // 共通: choose
+  // 経路A: a_consent → a_qr → a_card → a_pin → a_fetch →(完了)
+  // 経路B: b_select → b_qr → b_card → b_review → b_verify →(完了)
+  const [step, setStep] = useState("choose");
+  const [pin, setPin] = useState("");
+  const [agree, setAgree] = useState(false);
   const [newType, setNewType] = useState("実務者研修"); const [newNum, setNewNum] = useState("");
   const toggle = (id) => setQuals(quals.map((q) => (q.id === id ? { ...q, publish: !q.publish } : q)));
-  const reset = () => { setShowAdd(false); setStep("choose"); setRoute(null); setNewNum(""); };
+  const reset = () => { setShowAdd(false); setStep("choose"); setPin(""); setAgree(false); setNewNum(""); };
 
-  const finishApi = () => {
-    setStep("api_running");
+  const commitApi = () => {
+    setStep("a_fetch");
     setTimeout(() => {
       setQuals((qs) => [...qs, { id: "q" + Date.now(), type: "介護福祉士", license: "登録番号 9012345", status: "verified", expires: "更新不要", publish: false, route: "api", source: "国家資格情報システム(自己情報取得API)", nextSync: "2026-09-22" }]);
       reset();
     }, 1800);
   };
-  const finishCard = () => {
-    setStep("card_running");
+  const commitCard = () => {
+    setStep("b_verify");
     setTimeout(() => {
       setQuals((qs) => [...qs, { id: "q" + Date.now(), type: newType, license: newNum || "—", status: "verified", expires: "更新不要", publish: false, route: "card", source: "デジタル資格者証(提示・検証)", nextSync: null }]);
       reset();
-    }, 1600);
+    }, 1800);
   };
 
   const inp = { width: "100%", boxSizing: "border-box", padding: "12px 14px", marginTop: 6, border: `2px solid ${DA.line}`, borderRadius: 6, fontFamily: font, fontSize: 15 };
+  const qrBox = <div style={{ display: "flex", justifyContent: "center", margin: "10px 0 4px" }}><div style={{ width: 120, height: 120, border: `2px solid ${DA.ink}`, borderRadius: 8, display: "grid", placeItems: "center", background: "#fff" }}><QrMock /></div></div>;
+  const cardArt = <div style={{ display: "flex", justifyContent: "center", margin: "8px 0" }}><div style={{ width: 150, height: 94, borderRadius: 10, background: DA.greenLight, border: `2px solid ${DA.green}`, position: "relative", overflow: "hidden" }}>
+    <div style={{ position: "absolute", top: 10, left: 12, fontSize: 10, fontWeight: 800, color: DA.greenDark }}>マイナンバーカード</div>
+    <div style={{ position: "absolute", top: 40, left: 12, width: 26, height: 32, background: "#C9B26B", borderRadius: 3 }} />
+    <div style={{ position: "absolute", bottom: 12, left: 12, right: 12, height: 7, background: "#fff", borderRadius: 2 }} />
+  </div></div>;
 
   return (<div>
     <PageHead title="マイ資格" desc="資格の連携方法は2つ。マイナポータル連携（経路A・以後自動更新）か、デジタル資格者証の提示（経路B）を選べます。" />
@@ -460,40 +470,100 @@ function MyQuals() {
     </Card>)}</div>
 
     {showAdd && <Modal onClose={() => reset()} title="資格を追加">
+      <StepDots step={step} />
+
       {step === "choose" && <>
         <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8, marginTop: 0 }}>連携方法を選んでください。</p>
-        <button onClick={() => { setRoute("api"); setStep("api_consent"); }} style={{ width: "100%", textAlign: "left", border: `2px solid ${DA.blue}`, background: DA.blueBg, borderRadius: 8, padding: 16, cursor: "pointer", fontFamily: font, marginBottom: 12 }}>
+        <button onClick={() => setStep("a_consent")} style={{ width: "100%", textAlign: "left", border: `2px solid ${DA.blue}`, background: DA.blueBg, borderRadius: 8, padding: 16, cursor: "pointer", fontFamily: font, marginBottom: 12 }}>
           <div style={{ fontWeight: 800, color: DA.blue, fontSize: 15 }}>経路A：マイナポータル連携（おすすめ）</div>
           <div style={{ fontSize: 13, color: DA.ink, marginTop: 4, lineHeight: 1.7 }}>マイナンバーカードで一度同意すると、国家資格情報システムから資格を自動取得。以後は期間連携APIで自動更新されます。</div>
         </button>
-        <button onClick={() => { setRoute("card"); setStep("card_present"); }} style={{ width: "100%", textAlign: "left", border: `2px solid ${DA.green}`, background: DA.okBg, borderRadius: 8, padding: 16, cursor: "pointer", fontFamily: font }}>
+        <button onClick={() => setStep("b_select")} style={{ width: "100%", textAlign: "left", border: `2px solid ${DA.green}`, background: DA.okBg, borderRadius: 8, padding: 16, cursor: "pointer", fontFamily: font }}>
           <div style={{ fontWeight: 800, color: DA.ok, fontSize: 15 }}>経路B：デジタル資格者証の提示</div>
           <div style={{ fontSize: 13, color: DA.ink, marginTop: 4, lineHeight: 1.7 }}>マイナポータルで取得済みのデジタル資格者証を提示し、その場で真正性を検証します。自動更新はありません。</div>
         </button>
       </>}
 
-      {step === "api_consent" && <>
-        <div style={{ fontWeight: 800, fontSize: 15, color: DA.ink, marginBottom: 8 }}>マイナポータル連携の同意</div>
+      {step === "a_consent" && <>
+        <div style={{ fontWeight: 800, fontSize: 15, color: DA.ink, marginBottom: 8 }}>① 連携内容に同意</div>
         <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8 }}>以下の内容で、あなたの資格情報をココファンポータルに連携します。</p>
         <div style={{ background: DA.bg, borderRadius: 8, padding: 14, fontSize: 13, color: DA.ink, lineHeight: 1.9, margin: "8px 0 14px" }}>
           連携先：学研ココファンポータル<br />連携項目：国家資格（介護福祉士）の有効性・登録情報<br />連携経路：国家資格情報システム（自己情報取得API）<br />更新：期間連携APIにより90日ごとに自動更新<br />本人確認：デジタル認証アプリ（マイナンバーカード）
         </div>
-        <label style={{ display: "flex", gap: 8, alignItems: "flex-start", fontSize: 13, color: DA.ink, cursor: "pointer" }}><input type="checkbox" id="cons" style={{ width: 18, height: 18, marginTop: 1 }} />上記の連携内容に同意します</label>
-        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}><Btn variant="subtle" small onClick={() => setStep("choose")}>戻る</Btn><Btn small onClick={() => { const c = document.getElementById("cons"); if (!c || !c.checked) { alert("連携内容への同意が必要です。"); return; } finishApi(); }}>同意して本人確認へ</Btn></div>
+        <label style={{ display: "flex", gap: 8, alignItems: "flex-start", fontSize: 13, color: DA.ink, cursor: "pointer" }}><input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} style={{ width: 18, height: 18, marginTop: 1 }} />上記の連携内容に同意します</label>
+        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}><Btn variant="subtle" small onClick={() => setStep("choose")}>戻る</Btn><Btn small onClick={() => { if (!agree) { alert("連携内容への同意が必要です。"); return; } setStep("a_qr"); }}>同意して本人確認へ</Btn></div>
       </>}
 
-      {step === "api_running" && <div style={{ textAlign: "center", padding: "20px 0" }}><Spinner /><p style={{ fontSize: 14, color: DA.ink, fontWeight: 700, marginTop: 16 }}>デジタル認証アプリで本人確認 → 国家資格情報システムから取得中…</p></div>}
+      {step === "a_qr" && <>
+        <div style={{ fontWeight: 800, fontSize: 15, color: DA.ink, marginBottom: 8 }}>② デジタル認証アプリを起動</div>
+        <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8 }}>スマートフォンの「デジ認アプリ」で、下のQRコードを読み取ってください。</p>
+        {qrBox}
+        <p style={{ fontSize: 11, color: DA.sub, textAlign: "center", margin: "8px 0 0" }}>デジ認アプリで読み取ってください</p>
+        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}><Btn variant="subtle" small onClick={() => setStep("a_consent")}>戻る</Btn><Btn small onClick={() => setStep("a_card")}>読み取った（次へ）</Btn></div>
+      </>}
 
-      {step === "card_present" && <>
-        <div style={{ fontWeight: 800, fontSize: 15, color: DA.ink, marginBottom: 8 }}>デジタル資格者証を提示</div>
-        <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8 }}>マイナポータルで取得したデジタル資格者証を読み取ります。資格種別を選び、券面の番号を入力してください。</p>
+      {step === "a_card" && <>
+        <div style={{ fontWeight: 800, fontSize: 15, color: DA.ink, marginBottom: 8 }}>③ マイナンバーカードをかざす</div>
+        <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8 }}>スマートフォンの背面にマイナンバーカードを密着させてください。</p>
+        {cardArt}
+        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}><Btn variant="subtle" small onClick={() => setStep("a_qr")}>戻る</Btn><Btn small onClick={() => setStep("a_pin")}>かざした（次へ）</Btn></div>
+      </>}
+
+      {step === "a_pin" && <>
+        <div style={{ fontWeight: 800, fontSize: 15, color: DA.ink, marginBottom: 8 }}>④ 暗証番号を入力</div>
+        <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8 }}>利用者証明用電子証明書の暗証番号（数字4桁）を入力してください。</p>
+        <input style={{ ...inp, letterSpacing: 10, fontSize: 22, textAlign: "center" }} type="password" value={pin} maxLength={4} placeholder="••••" onChange={(e) => setPin(e.target.value.replace(/\D/g, ""))} />
+        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}><Btn variant="subtle" small onClick={() => setStep("a_card")}>戻る</Btn><Btn small onClick={() => { if (pin.length < 4) { alert("暗証番号（4桁）を入力してください。"); return; } commitApi(); }}>本人確認して連携</Btn></div>
+      </>}
+
+      {step === "a_fetch" && <div style={{ textAlign: "center", padding: "20px 0" }}><Spinner /><p style={{ fontSize: 14, color: DA.ink, fontWeight: 700, marginTop: 16 }}>国家資格情報システムから資格を取得中…</p><p style={{ fontSize: 12, color: DA.sub, marginTop: 6 }}>自己情報取得API・期間連携を設定しています</p></div>}
+
+      {step === "b_select" && <>
+        <div style={{ fontWeight: 800, fontSize: 15, color: DA.ink, marginBottom: 8 }}>① 提示する資格を選ぶ</div>
+        <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8 }}>マイナポータルで取得済みのデジタル資格者証から、提示する資格を選びます。</p>
         <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block", marginTop: 12 }}>資格種別<select value={newType} onChange={(e) => setNewType(e.target.value)} style={{ ...inp, background: "#fff" }}>{["介護福祉士", "実務者研修", "初任者研修", "社会福祉士", "看護師", "介護支援専門員"].map((t) => <option key={t}>{t}</option>)}</select></label>
         <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block", marginTop: 14 }}>登録番号 / 修了番号<input value={newNum} onChange={(e) => setNewNum(e.target.value)} placeholder="例: 1234567" style={inp} /></label>
-        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}><Btn variant="subtle" small onClick={() => setStep("choose")}>戻る</Btn><Btn small onClick={finishCard}>資格者証を検証</Btn></div>
+        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}><Btn variant="subtle" small onClick={() => setStep("choose")}>戻る</Btn><Btn small onClick={() => setStep("b_qr")}>次へ</Btn></div>
       </>}
 
-      {step === "card_running" && <div style={{ textAlign: "center", padding: "20px 0" }}><Spinner /><p style={{ fontSize: 14, color: DA.ink, fontWeight: 700, marginTop: 16 }}>デジタル資格者証の署名・有効性を検証中…</p></div>}
+      {step === "b_qr" && <>
+        <div style={{ fontWeight: 800, fontSize: 15, color: DA.ink, marginBottom: 8 }}>② 資格者証を読み取る</div>
+        <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8 }}>マイナポータルアプリで下のQRコードを読み取り、デジタル資格者証を提示してください。</p>
+        {qrBox}
+        <p style={{ fontSize: 11, color: DA.sub, textAlign: "center", margin: "8px 0 0" }}>マイナポータルアプリで読み取ってください</p>
+        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}><Btn variant="subtle" small onClick={() => setStep("b_select")}>戻る</Btn><Btn small onClick={() => setStep("b_card")}>読み取った（次へ）</Btn></div>
+      </>}
+
+      {step === "b_card" && <>
+        <div style={{ fontWeight: 800, fontSize: 15, color: DA.ink, marginBottom: 8 }}>③ マイナンバーカードをかざす</div>
+        <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8 }}>本人確認のため、マイナンバーカードをスマートフォンにかざしてください。</p>
+        {cardArt}
+        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}><Btn variant="subtle" small onClick={() => setStep("b_qr")}>戻る</Btn><Btn small onClick={() => setStep("b_review")}>かざした（次へ）</Btn></div>
+      </>}
+
+      {step === "b_review" && <>
+        <div style={{ fontWeight: 800, fontSize: 15, color: DA.ink, marginBottom: 8 }}>④ 券面の内容を確認</div>
+        <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8 }}>読み取ったデジタル資格者証の内容を確認してください。</p>
+        <div style={{ background: DA.bg, borderRadius: 8, padding: 14, fontSize: 13, color: DA.ink, lineHeight: 1.9, margin: "8px 0 4px" }}>
+          氏名：{MY.name}<br />生年月日：{MY.dob}<br />資格：{newType}<br />登録/修了番号：{newNum || "—"}
+        </div>
+        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}><Btn variant="subtle" small onClick={() => setStep("b_card")}>戻る</Btn><Btn small onClick={commitCard}>この内容で提示・検証</Btn></div>
+      </>}
+
+      {step === "b_verify" && <div style={{ textAlign: "center", padding: "20px 0" }}><Spinner /><p style={{ fontSize: 14, color: DA.ink, fontWeight: 700, marginTop: 16 }}>デジタル資格者証の署名・有効性を検証中…</p></div>}
     </Modal>}
+  </div>);
+}
+
+function StepDots({ step }) {
+  const a = ["a_consent", "a_qr", "a_card", "a_pin", "a_fetch"];
+  const b = ["b_select", "b_qr", "b_card", "b_review", "b_verify"];
+  let seq = null, idx = -1;
+  if (a.includes(step)) { seq = a; idx = a.indexOf(step); }
+  else if (b.includes(step)) { seq = b; idx = b.indexOf(step); }
+  if (!seq) return null;
+  return (<div style={{ display: "flex", gap: 6, justifyContent: "center", marginBottom: 16 }}>
+    {seq.map((_, i) => <div key={i} style={{ width: i === idx ? 22 : 8, height: 8, borderRadius: 4, background: i <= idx ? DA.green : DA.line, transition: "all .2s" }} />)}
   </div>);
 }
 
