@@ -34,44 +34,44 @@ const SITES = [
     id: "CF-001", name: "ココファン日吉", pref: "神奈川県", kind: "特定施設入居者生活介護",
     staff: [
       { id: "S-1001", name: "佐藤 花子", kana: "サトウ ハナコ", dob: "1985-04-15", role: "介護職員", tenure: 11.2, fulltime: 1.0,
-        quals: [{ type: "介護福祉士", license: "登録番号 1234567", status: "verified", expires: "更新不要", source: "社会福祉振興・試験センターAPI", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "介護福祉士", license: "登録番号 1234567", status: "verified", expires: "更新不要", route: "api", source: "国家資格情報システム(自己情報取得API)", verifiedAt: "2026-03-22 09:00", nextSync: "2026-06-20" }] },
       { id: "S-1002", name: "鈴木 一郎", kana: "スズキ イチロウ", dob: "1990-08-02", role: "介護職員", tenure: 6.5, fulltime: 1.0,
-        quals: [{ type: "介護福祉士", license: "登録番号 2345678", status: "verified", expires: "更新不要", source: "社会福祉振興・試験センターAPI", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "介護福祉士", license: "登録番号 2345678", status: "verified", expires: "更新不要", route: "api", source: "国家資格情報システム(自己情報取得API)", verifiedAt: "2026-03-22 09:00", nextSync: "2026-06-20" }] },
       { id: "S-1003", name: "田中 美咲", kana: "タナカ ミサキ", dob: "1995-03-09", role: "介護職員", tenure: 3.1, fulltime: 1.0,
-        quals: [{ type: "実務者研修", license: "修了番号 J-99887", status: "verified", expires: "更新不要", source: "学研ココファン人材養成DB", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "実務者研修", license: "修了番号 J-99887", status: "verified", expires: "更新不要", route: "card", source: "デジタル資格者証(提示・検証)", verifiedAt: "2026-03-22 09:00", nextSync: null }] },
       { id: "S-1004", name: "高橋 健", kana: "タカハシ ケン", dob: "1982-06-30", role: "介護職員", tenure: 12.4, fulltime: 1.0,
-        quals: [{ type: "介護福祉士", license: "登録番号 3456789", status: "verified", expires: "更新不要", source: "社会福祉振興・試験センターAPI", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "介護福祉士", license: "登録番号 3456789", status: "verified", expires: "更新不要", route: "api", source: "国家資格情報システム(自己情報取得API)", verifiedAt: "2026-03-22 09:00", nextSync: "2026-06-20" }] },
       { id: "S-1005", name: "伊藤 さやか", kana: "イトウ サヤカ", dob: "1992-11-11", role: "介護職員", tenure: 1.0, fulltime: 0.5,
-        quals: [{ type: "初任者研修", license: "修了番号 K-55421", status: "verified", expires: "更新不要", source: "学研ココファン人材養成DB", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "初任者研修", license: "修了番号 K-55421", status: "verified", expires: "更新不要", route: "card", source: "デジタル資格者証(提示・検証)", verifiedAt: "2026-03-22 09:00", nextSync: null }] },
       { id: "S-1006", name: "渡辺 大輔", kana: "ワタナベ ダイスケ", dob: "1988-02-14", role: "看護職員", tenure: 4.0, fulltime: 1.0,
-        quals: [{ type: "看護師", license: "籍登録 第654321号", status: "expiring", expires: "2026-08-31", source: "医療資格API(厚労省)", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "看護師", license: "籍登録 第654321号", status: "expiring", expires: "2026-08-31", route: "api", source: "国家資格情報システム(自己情報取得API)", verifiedAt: "2026-03-22 09:00", nextSync: "2026-06-20" }] },
     ],
   },
   {
     id: "CF-002", name: "ココファン藤沢SST", pref: "神奈川県", kind: "サ高住＋訪問介護",
     staff: [
       { id: "S-2001", name: "小林 涼", kana: "コバヤシ リョウ", dob: "1986-09-25", role: "介護職員", tenure: 8.2, fulltime: 1.0,
-        quals: [{ type: "介護福祉士", license: "登録番号 4567890", status: "verified", expires: "更新不要", source: "社会福祉振興・試験センターAPI", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "介護福祉士", license: "登録番号 4567890", status: "verified", expires: "更新不要", route: "api", source: "国家資格情報システム(自己情報取得API)", verifiedAt: "2026-03-22 09:00", nextSync: "2026-06-20" }] },
       { id: "S-2002", name: "加藤 真理", kana: "カトウ マリ", dob: "1991-01-20", role: "介護職員", tenure: 2.0, fulltime: 1.0,
-        quals: [{ type: "実務者研修", license: "修了番号 J-77123", status: "verified", expires: "更新不要", source: "学研ココファン人材養成DB", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "実務者研修", license: "修了番号 J-77123", status: "verified", expires: "更新不要", route: "card", source: "デジタル資格者証(提示・検証)", verifiedAt: "2026-03-22 09:00", nextSync: null }] },
       { id: "S-2003", name: "吉田 翔", kana: "ヨシダ ショウ", dob: "1994-05-05", role: "介護職員", tenure: 0.5, fulltime: 1.0,
-        quals: [{ type: "初任者研修", license: "—", status: "unverified", expires: "—", source: "—", verifiedAt: "—" }] },
+        quals: [{ type: "初任者研修", license: "—", status: "unverified", expires: "—", route: null, source: "—", verifiedAt: "—", nextSync: null }] },
       { id: "S-2004", name: "山口 葵", kana: "ヤマグチ アオイ", dob: "1989-12-12", role: "介護職員", tenure: 5.5, fulltime: 1.0,
-        quals: [{ type: "介護福祉士", license: "登録番号 5678901", status: "mismatch", expires: "—", source: "社会福祉振興・試験センターAPI", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "介護福祉士", license: "登録番号 5678901", status: "mismatch", expires: "—", route: "api", source: "国家資格情報システム(自己情報取得API)", verifiedAt: "2026-03-22 09:00", nextSync: null }] },
       { id: "S-2005", name: "松本 海斗", kana: "マツモト カイト", dob: "1983-07-07", role: "管理者", tenure: 10.5, fulltime: 1.0,
-        quals: [{ type: "介護福祉士", license: "登録番号 6789012", status: "verified", expires: "更新不要", source: "社会福祉振興・試験センターAPI", verifiedAt: "2026-03-22 09:00" },
-                { type: "介護支援専門員", license: "第130012345号", status: "expiring", expires: "2026-07-31", source: "都道府県介護支援専門員DB", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "介護福祉士", license: "登録番号 6789012", status: "verified", expires: "更新不要", route: "api", source: "国家資格情報システム(自己情報取得API)", verifiedAt: "2026-03-22 09:00", nextSync: "2026-06-20" },
+                { type: "介護支援専門員", license: "第130012345号", status: "expiring", expires: "2026-07-31", route: "api", source: "国家資格情報システム(自己情報取得API)", verifiedAt: "2026-03-22 09:00", nextSync: "2026-06-20" }] },
     ],
   },
   {
     id: "CF-003", name: "ココファン柏豊四季台", pref: "千葉県", kind: "サ高住＋通所介護",
     staff: [
       { id: "S-3001", name: "中村 由美", kana: "ナカムラ ユミ", dob: "1987-03-03", role: "介護職員", tenure: 9.0, fulltime: 1.0,
-        quals: [{ type: "介護福祉士", license: "登録番号 7890123", status: "verified", expires: "更新不要", source: "社会福祉振興・試験センターAPI", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "介護福祉士", license: "登録番号 7890123", status: "verified", expires: "更新不要", route: "api", source: "国家資格情報システム(自己情報取得API)", verifiedAt: "2026-03-22 09:00", nextSync: "2026-06-20" }] },
       { id: "S-3002", name: "井上 拓也", kana: "イノウエ タクヤ", dob: "1996-06-18", role: "介護職員", tenure: 1.5, fulltime: 1.0,
-        quals: [{ type: "初任者研修", license: "修了番号 K-66218", status: "verified", expires: "更新不要", source: "学研ココファン人材養成DB", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "初任者研修", license: "修了番号 K-66218", status: "verified", expires: "更新不要", route: "card", source: "デジタル資格者証(提示・検証)", verifiedAt: "2026-03-22 09:00", nextSync: null }] },
       { id: "S-3003", name: "木村 彩", kana: "キムラ アヤ", dob: "1993-10-30", role: "介護職員", tenure: 3.8, fulltime: 1.0,
-        quals: [{ type: "実務者研修", license: "修了番号 J-33010", status: "verified", expires: "更新不要", source: "学研ココファン人材養成DB", verifiedAt: "2026-03-22 09:00" }] },
+        quals: [{ type: "実務者研修", license: "修了番号 J-33010", status: "verified", expires: "更新不要", route: "card", source: "デジタル資格者証(提示・検証)", verifiedAt: "2026-03-22 09:00", nextSync: null }] },
     ],
   },
 ];
@@ -108,6 +108,11 @@ const CANDIDATES = [
 ];
 
 function Badge({ s }) { const v = STATUS[s]; return <span style={{ display: "inline-block", padding: "2px 10px", borderRadius: 4, fontSize: 12, fontWeight: 700, color: v.c, background: v.bg, whiteSpace: "nowrap" }}>{v.label}</span>; }
+function RouteBadge({ route }) {
+  if (route === "api") return <span style={{ display: "inline-block", padding: "2px 8px", borderRadius: 4, fontSize: 11, fontWeight: 800, color: DA.blue, background: DA.blueBg, whiteSpace: "nowrap" }}>経路A：API自動連携</span>;
+  if (route === "card") return <span style={{ display: "inline-block", padding: "2px 8px", borderRadius: 4, fontSize: 11, fontWeight: 800, color: DA.ok, background: DA.okBg, whiteSpace: "nowrap" }}>経路B：資格者証提示</span>;
+  return <span style={{ display: "inline-block", padding: "2px 8px", borderRadius: 4, fontSize: 11, fontWeight: 800, color: DA.gray, background: DA.grayBg, whiteSpace: "nowrap" }}>未連携</span>;
+}
 function Card({ children, style }) { return <div style={{ background: DA.white, border: `1px solid ${DA.line}`, borderRadius: 8, boxShadow: "0 1px 3px rgba(0,0,0,0.06)", ...style }}>{children}</div>; }
 function Btn({ children, onClick, variant = "primary", small, full }) {
   const base = { fontFamily: font, fontWeight: 700, cursor: "pointer", borderRadius: 6, padding: small ? "6px 14px" : "10px 22px", fontSize: small ? 13 : 15, border: "2px solid transparent", outlineOffset: 2, width: full ? "100%" : "auto" };
@@ -188,6 +193,9 @@ function Dashboard({ go }) {
   const allKf = SITES.reduce((a, s) => a + s.staff.filter(isKaigoFukushishi).length, 0);
   const attention = SITES.reduce((a, s) => a + s.staff.filter((x) => ["expiring", "expired", "mismatch", "unverified"].includes(topStatus(x))).length, 0);
   const atRisk = SITES.filter((s) => { const r = siteRatio(s).ratio; return r < 0.5; }).length;
+  const allQuals = SITES.flatMap((s) => s.staff.flatMap((x) => x.quals));
+  const apiCount = allQuals.filter((q) => q.route === "api").length;
+  const cardCount = allQuals.filter((q) => q.route === "card").length;
   const stats = [
     { label: "管理拠点数", v: `${SITES.length}拠点`, sub: "デモ" },
     { label: "登録職員数", v: `${totalStaff}名`, sub: `介護福祉士 ${allKf}名` },
@@ -195,7 +203,14 @@ function Dashboard({ go }) {
     { label: "資格 要対応", v: `${attention}件`, sub: "更新間近/不一致/未照合" },
   ];
   return (<div>
-    <PageHead title="ダッシュボード" desc="拠点ごとの介護福祉士割合と加算要件の充足状況、対応が必要な資格を確認できます。" />
+    <PageHead title="ダッシュボード" desc="拠点ごとの介護福祉士割合と加算要件の充足状況、対応が必要な資格、資格の連携経路を確認できます。" />
+    <Card style={{ padding: 18, marginBottom: 20, background: DA.blueBg, border: `1px solid ${DA.blue}` }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
+        <div style={{ fontWeight: 800, fontSize: 14, color: DA.ink }}>資格の連携経路</div>
+        <div style={{ fontSize: 13, color: DA.ink }}><RouteBadge route="api" /> <b style={{ marginLeft: 6 }}>{apiCount}件</b>（自己情報取得API・自動更新）</div>
+        <div style={{ fontSize: 13, color: DA.ink }}><RouteBadge route="card" /> <b style={{ marginLeft: 6 }}>{cardCount}件</b>（デジタル資格者証の提示）</div>
+      </div>
+    </Card>
     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))", gap: 16, marginBottom: 24 }}>
       {stats.map((s) => <Card key={s.label} style={{ padding: 20 }}><div style={{ fontSize: 13, color: DA.sub, fontWeight: 700 }}>{s.label}</div><div style={{ fontSize: 30, fontWeight: 800, color: DA.ink, margin: "6px 0 2px" }}>{s.v}</div><div style={{ fontSize: 12, color: DA.sub }}>{s.sub}</div></Card>)}
     </div>
@@ -281,8 +296,8 @@ function SiteDetail({ site, onBack }) {
       <Field l="同一法人勤続年数" v={`${sel.tenure.toFixed(1)} 年`} ok={sel.tenure >= 10 && isKaigoFukushishi(sel)} />
       <div style={{ margin: "16px 0 8px", fontWeight: 800, fontSize: 14, color: DA.ink }}>保有資格と照合状況</div>
       {sel.quals.map((q, i) => <div key={i} style={{ padding: "12px 14px", border: `1px solid ${DA.line}`, borderRadius: 8, marginBottom: 10 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}><div style={{ fontWeight: 700, color: DA.ink }}>{q.type}</div><Badge s={q.status} /></div>
-        <div style={{ fontSize: 13, color: DA.sub, lineHeight: 1.9 }}>登録/修了番号: {q.license}<br />有効期限: {q.expires}<br />照合元: {q.source}<br />最終照合: {q.verifiedAt}</div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6, gap: 8, flexWrap: "wrap" }}><div style={{ fontWeight: 700, color: DA.ink }}>{q.type}</div><div style={{ display: "flex", gap: 6 }}><RouteBadge route={q.route} /><Badge s={q.status} /></div></div>
+        <div style={{ fontSize: 13, color: DA.sub, lineHeight: 1.9 }}>登録/修了番号: {q.license}<br />有効期限: {q.expires}<br />取得元: {q.source}<br />最終確認: {q.verifiedAt}{q.route === "api" && q.nextSync ? <><br />次回自動更新: {q.nextSync}（期間連携API）</> : null}</div>
       </div>)}
       {sel.tenure >= 10 && isKaigoFukushishi(sel) && <div style={{ padding: "10px 14px", background: DA.blueBg, borderRadius: 6, fontSize: 13, color: DA.ink }}>処遇改善加算における「経験・技能のある介護職員（介護福祉士かつ同一法人勤続10年以上）」の候補です。</div>}
     </Modal>}
@@ -324,26 +339,35 @@ function CandidateSearch() {
 }
 
 function PreCheck() {
+  const [mode, setMode] = useState("api"); // api | card
   const [name, setName] = useState(""); const [dob, setDob] = useState(""); const [type, setType] = useState("介護福祉士"); const [num, setNum] = useState("");
   const [checking, setChecking] = useState(false); const [result, setResult] = useState(null);
-  const run = () => {
+  const runApi = () => {
+    if (!name) { setResult({ status: "error", msg: "氏名を入力してください。" }); return; }
+    setChecking(true); setResult(null);
+    setTimeout(() => { setChecking(false); setResult({ status: "verified", msg: "本人へマイナポータル連携の依頼を送信しました。本人が同意すると、入職予定者として資格が自動連携され、入職と同時に拠点の割合へ反映されます。" }); }, 1500);
+  };
+  const runCard = () => {
     if (!name || !num) { setResult({ status: "error", msg: "氏名と登録/修了番号を入力してください。" }); return; }
     setChecking(true); setResult(null);
-    setTimeout(() => { setChecking(false); const ok = num.replace(/\D/g, "").length >= 6; setResult(ok ? { status: "verified", msg: "資格を確認しました。入職手続きに進めます。" } : { status: "mismatch", msg: "登録情報と一致しませんでした。番号・氏名・生年月日をご確認ください。" }); }, 1500);
+    setTimeout(() => { setChecking(false); const ok = num.replace(/\D/g, "").length >= 6; setResult(ok ? { status: "verified", msg: "提示されたデジタル資格者証の真正性を確認しました。入職手続きに進めます。" } : { status: "mismatch", msg: "資格者証の検証に失敗しました。番号・氏名・生年月日をご確認ください。" }); }, 1500);
   };
   const inp = { width: "100%", boxSizing: "border-box", padding: "11px 13px", marginTop: 6, border: `2px solid ${DA.line}`, borderRadius: 6, fontFamily: font, fontSize: 15 };
+  const modeTab = (k, l) => <button key={k} onClick={() => { setMode(k); setResult(null); }} style={{ flex: 1, padding: "10px 0", fontFamily: font, fontWeight: 700, fontSize: 14, cursor: "pointer", border: "none", borderBottom: `3px solid ${mode === k ? DA.green : "transparent"}`, background: "transparent", color: mode === k ? DA.green : DA.sub }}>{l}</button>;
   return (<div>
-    <p style={{ color: DA.sub, fontSize: 14, margin: "0 0 20px" }}>内定者・入職予定者の資格を、各資格の発行機関APIへ照会して入職前に確認します。詐称・取り違えを防ぎ、加算算定の前提を担保します。</p>
-    <Card style={{ padding: 24, maxWidth: 560 }}>
-      <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block" }}>氏名<input style={inp} value={name} onChange={(e) => setName(e.target.value)} placeholder="例: 森田 ひかり" /></label>
-      <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block", marginTop: 14 }}>生年月日<input style={inp} value={dob} onChange={(e) => setDob(e.target.value)} placeholder="例: 1990-04-01" /></label>
-      <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block", marginTop: 14 }}>資格種別
-        <select style={{ ...inp, background: "#fff" }} value={type} onChange={(e) => setType(e.target.value)}>{["介護福祉士", "実務者研修", "初任者研修", "社会福祉士", "看護師", "介護支援専門員"].map((t) => <option key={t}>{t}</option>)}</select>
-      </label>
-      <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block", marginTop: 14 }}>登録番号 / 修了番号<input style={inp} value={num} onChange={(e) => setNum(e.target.value)} placeholder="例: 1234567" /></label>
-      <div style={{ marginTop: 20 }}><Btn full onClick={run}>資格を照合する</Btn></div>
-      {checking && <div style={{ textAlign: "center", padding: "20px 0" }}><Spinner /><p style={{ fontSize: 14, color: DA.ink, fontWeight: 700, marginTop: 14 }}>発行機関APIへ照会中…</p></div>}
-      {result && !checking && <div style={{ marginTop: 18, padding: "14px 16px", borderRadius: 8, background: result.status === "verified" ? DA.okBg : result.status === "mismatch" ? DA.redBg : DA.grayBg, color: result.status === "verified" ? DA.ok : result.status === "mismatch" ? DA.red : DA.ink, fontSize: 14, fontWeight: 700 }}>{result.status === "verified" ? "✓ " : result.status === "mismatch" ? "× " : ""}{result.msg}</div>}
+    <p style={{ color: DA.sub, fontSize: 14, margin: "0 0 16px" }}>内定者・入職予定者の資格を入職前に確認します。連携方法は2つから選べます。</p>
+    <Card style={{ padding: 0, maxWidth: 560, overflow: "hidden" }}>
+      <div style={{ display: "flex", borderBottom: `1px solid ${DA.line}` }}>{modeTab("api", "経路A：本人にAPI連携を依頼")}{modeTab("card", "経路B：資格者証の提示を確認")}</div>
+      <div style={{ padding: 24 }}>
+        <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block" }}>氏名<input style={inp} value={name} onChange={(e) => setName(e.target.value)} placeholder="例: 森田 ひかり" /></label>
+        <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block", marginTop: 14 }}>生年月日<input style={inp} value={dob} onChange={(e) => setDob(e.target.value)} placeholder="例: 1990-04-01" /></label>
+        <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block", marginTop: 14 }}>資格種別<select style={{ ...inp, background: "#fff" }} value={type} onChange={(e) => setType(e.target.value)}>{["介護福祉士", "実務者研修", "初任者研修", "社会福祉士", "看護師", "介護支援専門員"].map((t) => <option key={t}>{t}</option>)}</select></label>
+        {mode === "card" && <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block", marginTop: 14 }}>登録番号 / 修了番号<input style={inp} value={num} onChange={(e) => setNum(e.target.value)} placeholder="例: 1234567" /></label>}
+        {mode === "api" && <p style={{ fontSize: 12, color: DA.sub, marginTop: 12, lineHeight: 1.7 }}>本人のメール等に連携依頼を送り、本人がマイナポータルで同意すると資格が自動連携されます。雇用主が本人なしに照会することはできません。</p>}
+        <div style={{ marginTop: 18 }}><Btn full onClick={mode === "api" ? runApi : runCard}>{mode === "api" ? "本人に連携を依頼する" : "資格者証を検証する"}</Btn></div>
+        {checking && <div style={{ textAlign: "center", padding: "20px 0" }}><Spinner /><p style={{ fontSize: 14, color: DA.ink, fontWeight: 700, marginTop: 14 }}>{mode === "api" ? "連携依頼を送信中…" : "デジタル資格者証を検証中…"}</p></div>}
+        {result && !checking && <div style={{ marginTop: 18, padding: "14px 16px", borderRadius: 8, background: result.status === "verified" ? DA.okBg : result.status === "mismatch" ? DA.redBg : DA.grayBg, color: result.status === "verified" ? DA.ok : result.status === "mismatch" ? DA.red : DA.ink, fontSize: 14, fontWeight: 700, lineHeight: 1.7 }}>{result.status === "verified" ? "✓ " : result.status === "mismatch" ? "× " : ""}{result.msg}</div>}
+      </div>
     </Card>
   </div>);
 }
@@ -380,7 +404,7 @@ function Settings() {
 
 // 個人（職員本人）
 const MY = { name: "佐藤 花子", kana: "サトウ ハナコ", dob: "1985-04-15", site: "ココファン日吉", tenure: 11.2,
-  quals: [{ id: "q1", type: "介護福祉士", license: "登録番号 1234567", status: "verified", expires: "更新不要", publish: true }],
+  quals: [{ id: "q1", type: "介護福祉士", license: "登録番号 1234567", status: "verified", expires: "更新不要", publish: true, route: "api", source: "国家資格情報システム(自己情報取得API)", nextSync: "2026-06-20" }],
 };
 const MY_OFFERS = [{ id: "o1", site: "ココファン藤沢SST", qual: "介護福祉士", msg: "サービス提供体制強化加算の体制づくりに向け、リーダー候補として打診です。", date: "2026-03-20", state: "new" }];
 
@@ -400,26 +424,75 @@ function IndvHome({ go }) {
 }
 
 function MyQuals() {
-  const [quals, setQuals] = useState(MY.quals); const [showAdd, setShowAdd] = useState(false);
-  const [newType, setNewType] = useState("実務者研修"); const [newNum, setNewNum] = useState(""); const [verifying, setVerifying] = useState(false);
-  const add = () => { setVerifying(true); setTimeout(() => { setQuals([...quals, { id: "q" + Date.now(), type: newType, license: newNum || "—", status: "verified", expires: "更新不要", publish: false }]); setVerifying(false); setShowAdd(false); setNewNum(""); }, 1500); };
+  const [quals, setQuals] = useState(MY.quals);
+  const [showAdd, setShowAdd] = useState(false);
+  const [step, setStep] = useState("choose"); // choose | api_consent | api_running | card_present | card_running | form
+  const [route, setRoute] = useState(null);
+  const [newType, setNewType] = useState("実務者研修"); const [newNum, setNewNum] = useState("");
   const toggle = (id) => setQuals(quals.map((q) => (q.id === id ? { ...q, publish: !q.publish } : q)));
+  const reset = () => { setShowAdd(false); setStep("choose"); setRoute(null); setNewNum(""); };
+
+  const finishApi = () => {
+    setStep("api_running");
+    setTimeout(() => {
+      setQuals((qs) => [...qs, { id: "q" + Date.now(), type: "介護福祉士", license: "登録番号 9012345", status: "verified", expires: "更新不要", publish: false, route: "api", source: "国家資格情報システム(自己情報取得API)", nextSync: "2026-09-22" }]);
+      reset();
+    }, 1800);
+  };
+  const finishCard = () => {
+    setStep("card_running");
+    setTimeout(() => {
+      setQuals((qs) => [...qs, { id: "q" + Date.now(), type: newType, license: newNum || "—", status: "verified", expires: "更新不要", publish: false, route: "card", source: "デジタル資格者証(提示・検証)", nextSync: null }]);
+      reset();
+    }, 1600);
+  };
+
+  const inp = { width: "100%", boxSizing: "border-box", padding: "12px 14px", marginTop: 6, border: `2px solid ${DA.line}`, borderRadius: 6, fontFamily: font, fontSize: 15 };
+
   return (<div>
-    <PageHead title="マイ資格" desc="保有資格を登録すると、発行機関APIで真偽が自動確認されます。資格ごとに法人内での公開可否を設定できます。" />
-    <div style={{ marginBottom: 16 }}><Btn onClick={() => setShowAdd(true)}>資格を追加</Btn></div>
+    <PageHead title="マイ資格" desc="資格の連携方法は2つ。マイナポータル連携（経路A・以後自動更新）か、デジタル資格者証の提示（経路B）を選べます。" />
+    <div style={{ marginBottom: 16 }}><Btn onClick={() => { setShowAdd(true); setStep("choose"); }}>資格を追加</Btn></div>
     <div style={{ display: "grid", gap: 16 }}>{quals.map((q) => <Card key={q.id} style={{ padding: 20 }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}><div style={{ fontWeight: 800, fontSize: 17, color: DA.ink }}>{q.type}</div><Badge s={q.status} /></div>
-      <div style={{ fontSize: 13, color: DA.sub, lineHeight: 1.9, margin: "8px 0 14px" }}>登録/修了番号: {q.license}<br />有効期限: {q.expires}</div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}><div style={{ fontWeight: 800, fontSize: 17, color: DA.ink }}>{q.type}</div><div style={{ display: "flex", gap: 6 }}><RouteBadge route={q.route} /><Badge s={q.status} /></div></div>
+      <div style={{ fontSize: 13, color: DA.sub, lineHeight: 1.9, margin: "8px 0 14px" }}>登録/修了番号: {q.license}<br />有効期限: {q.expires}<br />取得元: {q.source}{q.route === "api" && q.nextSync ? <><br />次回自動更新: {q.nextSync}（期間連携API・90日ごと）</> : null}</div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 14, borderTop: `1px solid ${DA.line}` }}><div style={{ fontSize: 14, fontWeight: 700, color: DA.ink }}>他拠点・本部への公開</div><button onClick={() => toggle(q.id)} style={{ width: 52, height: 28, borderRadius: 14, border: "none", cursor: "pointer", position: "relative", background: q.publish ? DA.green : DA.line }}><span style={{ position: "absolute", top: 3, left: q.publish ? 27 : 3, width: 22, height: 22, borderRadius: "50%", background: "#fff", transition: "left .15s" }} /></button></div>
       <div style={{ fontSize: 12, color: DA.sub, marginTop: 8 }}>{q.publish ? "公開中：法人内の異動・応援募集の候補に表示されます。" : "非公開：所属拠点の管理にのみ使用されます。"}</div>
     </Card>)}</div>
-    {showAdd && <Modal onClose={() => !verifying && setShowAdd(false)} title="資格を追加">
-      {verifying ? <div style={{ textAlign: "center", padding: "20px 0" }}><Spinner /><p style={{ fontSize: 14, color: DA.ink, fontWeight: 700, marginTop: 16 }}>発行機関APIで真偽を確認中…</p></div> : <>
-        <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink }}>資格種別<select value={newType} onChange={(e) => setNewType(e.target.value)} style={{ width: "100%", padding: "12px 14px", marginTop: 6, border: `2px solid ${DA.line}`, borderRadius: 6, fontFamily: font, fontSize: 15, background: "#fff" }}>{["介護福祉士", "実務者研修", "初任者研修", "社会福祉士", "看護師", "介護支援専門員"].map((t) => <option key={t}>{t}</option>)}</select></label>
-        <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block", marginTop: 16 }}>登録番号 / 修了番号<input value={newNum} onChange={(e) => setNewNum(e.target.value)} placeholder="例: 1234567" style={{ width: "100%", boxSizing: "border-box", padding: "12px 14px", marginTop: 6, border: `2px solid ${DA.line}`, borderRadius: 6, fontFamily: font, fontSize: 15 }} /></label>
-        <p style={{ fontSize: 12, color: DA.sub, marginTop: 12 }}>登録番号は、氏名・生年月日とあわせて各発行機関のAPIで照合されます。</p>
-        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 16 }}><Btn variant="subtle" small onClick={() => setShowAdd(false)}>キャンセル</Btn><Btn small onClick={add}>追加して照合</Btn></div>
+
+    {showAdd && <Modal onClose={() => reset()} title="資格を追加">
+      {step === "choose" && <>
+        <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8, marginTop: 0 }}>連携方法を選んでください。</p>
+        <button onClick={() => { setRoute("api"); setStep("api_consent"); }} style={{ width: "100%", textAlign: "left", border: `2px solid ${DA.blue}`, background: DA.blueBg, borderRadius: 8, padding: 16, cursor: "pointer", fontFamily: font, marginBottom: 12 }}>
+          <div style={{ fontWeight: 800, color: DA.blue, fontSize: 15 }}>経路A：マイナポータル連携（おすすめ）</div>
+          <div style={{ fontSize: 13, color: DA.ink, marginTop: 4, lineHeight: 1.7 }}>マイナンバーカードで一度同意すると、国家資格情報システムから資格を自動取得。以後は期間連携APIで自動更新されます。</div>
+        </button>
+        <button onClick={() => { setRoute("card"); setStep("card_present"); }} style={{ width: "100%", textAlign: "left", border: `2px solid ${DA.green}`, background: DA.okBg, borderRadius: 8, padding: 16, cursor: "pointer", fontFamily: font }}>
+          <div style={{ fontWeight: 800, color: DA.ok, fontSize: 15 }}>経路B：デジタル資格者証の提示</div>
+          <div style={{ fontSize: 13, color: DA.ink, marginTop: 4, lineHeight: 1.7 }}>マイナポータルで取得済みのデジタル資格者証を提示し、その場で真正性を検証します。自動更新はありません。</div>
+        </button>
       </>}
+
+      {step === "api_consent" && <>
+        <div style={{ fontWeight: 800, fontSize: 15, color: DA.ink, marginBottom: 8 }}>マイナポータル連携の同意</div>
+        <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8 }}>以下の内容で、あなたの資格情報をココファンポータルに連携します。</p>
+        <div style={{ background: DA.bg, borderRadius: 8, padding: 14, fontSize: 13, color: DA.ink, lineHeight: 1.9, margin: "8px 0 14px" }}>
+          連携先：学研ココファンポータル<br />連携項目：国家資格（介護福祉士）の有効性・登録情報<br />連携経路：国家資格情報システム（自己情報取得API）<br />更新：期間連携APIにより90日ごとに自動更新<br />本人確認：デジタル認証アプリ（マイナンバーカード）
+        </div>
+        <label style={{ display: "flex", gap: 8, alignItems: "flex-start", fontSize: 13, color: DA.ink, cursor: "pointer" }}><input type="checkbox" id="cons" style={{ width: 18, height: 18, marginTop: 1 }} />上記の連携内容に同意します</label>
+        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}><Btn variant="subtle" small onClick={() => setStep("choose")}>戻る</Btn><Btn small onClick={() => { const c = document.getElementById("cons"); if (!c || !c.checked) { alert("連携内容への同意が必要です。"); return; } finishApi(); }}>同意して本人確認へ</Btn></div>
+      </>}
+
+      {step === "api_running" && <div style={{ textAlign: "center", padding: "20px 0" }}><Spinner /><p style={{ fontSize: 14, color: DA.ink, fontWeight: 700, marginTop: 16 }}>デジタル認証アプリで本人確認 → 国家資格情報システムから取得中…</p></div>}
+
+      {step === "card_present" && <>
+        <div style={{ fontWeight: 800, fontSize: 15, color: DA.ink, marginBottom: 8 }}>デジタル資格者証を提示</div>
+        <p style={{ fontSize: 13, color: DA.sub, lineHeight: 1.8 }}>マイナポータルで取得したデジタル資格者証を読み取ります。資格種別を選び、券面の番号を入力してください。</p>
+        <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block", marginTop: 12 }}>資格種別<select value={newType} onChange={(e) => setNewType(e.target.value)} style={{ ...inp, background: "#fff" }}>{["介護福祉士", "実務者研修", "初任者研修", "社会福祉士", "看護師", "介護支援専門員"].map((t) => <option key={t}>{t}</option>)}</select></label>
+        <label style={{ fontSize: 14, fontWeight: 700, color: DA.ink, display: "block", marginTop: 14 }}>登録番号 / 修了番号<input value={newNum} onChange={(e) => setNewNum(e.target.value)} placeholder="例: 1234567" style={inp} /></label>
+        <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}><Btn variant="subtle" small onClick={() => setStep("choose")}>戻る</Btn><Btn small onClick={finishCard}>資格者証を検証</Btn></div>
+      </>}
+
+      {step === "card_running" && <div style={{ textAlign: "center", padding: "20px 0" }}><Spinner /><p style={{ fontSize: 14, color: DA.ink, fontWeight: 700, marginTop: 16 }}>デジタル資格者証の署名・有効性を検証中…</p></div>}
     </Modal>}
   </div>);
 }
